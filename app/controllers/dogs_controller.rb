@@ -19,4 +19,15 @@ class DogsController < ApplicationController
     )
     render :show 
   end 
+
+  def create 
+    @dog = Dog.new(
+      name: params[:name], 
+      age: params[:age], 
+      breed: params[:breed], 
+      image: params[:image]
+    )
+    @dog.save
+    render json: { message: "dog has been created!"}
+  end 
 end
